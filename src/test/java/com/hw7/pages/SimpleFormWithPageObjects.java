@@ -23,7 +23,7 @@ public class SimpleFormWithPageObjects {
             userNumberInput = $("#userNumber"),
             dayBirthInput = $("#dateOfBirthInput"),
             currentAddressInput = $("#currentAddress"),
-            hobbiesWrapper = $("#hobbiesWrapper").$(byText("Sports")),
+            hobbiesWrapper = $("#hobbiesWrapper"),
             subjectsInput = $("#subjectsInput"),
             pictureFile = $("#uploadPicture"),
             submitButton = $("#submit");
@@ -31,10 +31,13 @@ public class SimpleFormWithPageObjects {
     public SimpleFormWithPageObjects openPage() {
         open("/automation-practice-form");
         executeJavaScript("$('footer').remove()");
+
+        return this;
+    }
+    public SimpleFormWithPageObjects removeBanner() {
         executeJavaScript("$('#fixedban').remove()");
         return this;
     }
-
     public SimpleFormWithPageObjects setFirstName(String value) {
         firstNameInput.setValue(value);
         return this;
@@ -73,8 +76,8 @@ public class SimpleFormWithPageObjects {
         return this;
     }
 
-    public SimpleFormWithPageObjects setHobby(String value) {
-        hobbiesWrapper.click();
+    public SimpleFormWithPageObjects setHobby(String sport) {
+        hobbiesWrapper.$(byText(sport)).click();
         return this;
     }
 
@@ -99,7 +102,7 @@ public class SimpleFormWithPageObjects {
         return this;
     }
 
-    public SimpleFormWithPageObjects chekResult(String fromTable, String fromUser) {
+    public SimpleFormWithPageObjects checkResult(String fromTable, String fromUser) {
         verifyResultWO.verifyResults(fromTable, fromUser);
         return this;
     }

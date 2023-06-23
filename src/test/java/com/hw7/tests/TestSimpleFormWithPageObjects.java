@@ -8,6 +8,7 @@ public class TestSimpleFormWithPageObjects extends TestBase {
     void successfulRegistrationTest() {
         //Проверка заполения формы
         simpleFormWithPageObjects.openPage()
+                .removeBanner()
                 .setFirstName("TestFirstName")
                 .setLastName("TestLastN")
                 .setUserEmailName("test@test.test")
@@ -22,15 +23,15 @@ public class TestSimpleFormWithPageObjects extends TestBase {
                 .clickSubmit();
 
         //Проверка данных попапа
-        simpleFormWithPageObjects.chekResult("Student Name", "TestFirstName")
-                .chekResult("Student Email", "test@test.test")
-                .chekResult("Gender", "Other")
-                .chekResult("Mobile", "1111111111")
-                .chekResult("Date of Birth", "30 October,2008")
-                .chekResult("Subjects", "Maths")
-                .chekResult("Hobbies", "Sports")
-                .chekResult("Picture", "1.png")
-                .chekResult("Address", "TestCurrentAddress")
-                .chekResult("State and City", "NCR Delhi");
+        simpleFormWithPageObjects.checkResult("Student Name", "TestFirstName")
+                .checkResult("Student Email", "test@test.test")
+                .checkResult("Gender", "Other")
+                .checkResult("Mobile", "1111111111")
+                .checkResult("Date of Birth", "30 October,2008")
+                .checkResult("Subjects", "Maths")
+                .checkResult("Hobbies", "Sports")
+                .checkResult("Picture", "1.png")
+                .checkResult("Address", "TestCurrentAddress")
+                .checkResult("State and City", "NCR Delhi");
     }
 }
