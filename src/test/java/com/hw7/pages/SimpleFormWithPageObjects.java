@@ -1,5 +1,6 @@
 package com.hw7.pages;
 import com.codeborne.selenide.SelenideElement;
+import com.github.javafaker.Faker;
 import com.hw7.pages.components.CalendarComponent;
 import com.hw7.pages.components.CityComponent;
 import com.hw7.pages.components.VerifyComponent;
@@ -9,24 +10,26 @@ import java.io.File;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.Selenide.executeJavaScript;
+import static com.hw7.utils.RandomUtils.*;
 
 public class SimpleFormWithPageObjects {
     //String loginInputLocator= "#firstName"; - bed practice
+    Faker faker = new Faker();
     CalendarComponent calendarComponent = new CalendarComponent();
     CityComponent cityComponent = new CityComponent();
     VerifyComponent verifyResultWO = new VerifyComponent();
     SelenideElement
-            firstNameInput = $("#firstName"),
-            lastNameInput = $("#lastName"),
-            userEmailInput = $("#userEmail"),
-            ganderWrapper = $("#genterWrapper").parent(),
-            userNumberInput = $("#userNumber"),
-            dayBirthInput = $("#dateOfBirthInput"),
-            currentAddressInput = $("#currentAddress"),
-            hobbiesWrapper = $("#hobbiesWrapper"),
-            subjectsInput = $("#subjectsInput"),
-            pictureFile = $("#uploadPicture"),
-            submitButton = $("#submit");
+            firstNameInput = $("#firstName");
+    SelenideElement lastNameInput = $("#lastName");
+    SelenideElement userEmailInput = $("#userEmail");
+    SelenideElement ganderWrapper = $("#genterWrapper").parent();
+    SelenideElement userNumberInput = $("#userNumber");
+    SelenideElement dayBirthInput = $("#dateOfBirthInput");
+    SelenideElement currentAddressInput = $("#currentAddress");
+    static SelenideElement hobbiesWrapper = $("#hobbiesWrapper");
+    SelenideElement subjectsInput = $("#subjectsInput");
+    SelenideElement pictureFile = $("#uploadPicture");
+    SelenideElement submitButton = $("#submit");
 
     public SimpleFormWithPageObjects openPage() {
         open("/automation-practice-form");
@@ -63,11 +66,9 @@ public class SimpleFormWithPageObjects {
         return this;
     }
 
-    public SimpleFormWithPageObjects setBirthDay(String day,
-                                                 String month,
-                                                 String year) {
+    public SimpleFormWithPageObjects setBirthDay(String randomDay, String randomMonth, String randomYear) {
         dayBirthInput.click();
-        calendarComponent.setDate(day, month, year);
+        calendarComponent.setDate(randomDay, randomMonth, randomYear);
         return this;
     }
 
@@ -76,8 +77,8 @@ public class SimpleFormWithPageObjects {
         return this;
     }
 
-    public SimpleFormWithPageObjects setHobby(String sport) {
-        hobbiesWrapper.$(byText(sport)).click();
+     public SimpleFormWithPageObjects setHobby(String randomHobby) {
+        hobbiesWrapper.$(byText(randomHobby)).click();
         return this;
     }
 
@@ -87,8 +88,8 @@ public class SimpleFormWithPageObjects {
         return this;
     }
 
-    public SimpleFormWithPageObjects setCity(String area, String city) {
-        cityComponent.setCity(area, city);
+    public SimpleFormWithPageObjects setCity(String randomState, String randomCity) {
+     cityComponent.setCity(randomState, randomCity);
         return this;
     }
 
