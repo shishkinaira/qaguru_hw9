@@ -14,12 +14,11 @@ import static com.hw7.utils.RandomUtils.*;
 
 public class SimpleFormWithPageObjects {
     //String loginInputLocator= "#firstName"; - bed practice
-    Faker faker = new Faker();
+    public Faker faker = new Faker();
     CalendarComponent calendarComponent = new CalendarComponent();
     CityComponent cityComponent = new CityComponent();
     VerifyComponent verifyResultWO = new VerifyComponent();
-    SelenideElement
-            firstNameInput = $("#firstName");
+    SelenideElement firstNameInput = $("#firstName");
     SelenideElement lastNameInput = $("#lastName");
     SelenideElement userEmailInput = $("#userEmail");
     SelenideElement ganderWrapper = $("#genterWrapper").parent();

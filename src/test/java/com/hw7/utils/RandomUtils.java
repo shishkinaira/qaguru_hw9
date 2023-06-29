@@ -1,23 +1,9 @@
 package com.hw7.utils;
 import com.github.javafaker.Faker;
-import java.security.SecureRandom;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class RandomUtils {
-    static Faker faker = new Faker();
-
-
-
-    public static String getRandomString(int len) {
-//        String AB = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
-        String AB = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
-        SecureRandom rnd = new SecureRandom();
-
-        StringBuilder sb = new StringBuilder();
-        for (int i = 0; i < len; i++)
-            sb.append(AB.charAt(rnd.nextInt(AB.length())));
-        return sb.toString();
-    }
+    public static Faker faker = new Faker();
 
     public static int getRandomInt(int min, int max) {
         return ThreadLocalRandom.current().nextInt(min, max + 1);
@@ -26,7 +12,6 @@ public class RandomUtils {
     public static String getRandomPhone() {
         return String.format("%s%s", getRandomInt(11111, 99999), getRandomInt(11111, 99999));
     }
-
 
     public static String getRandomGender() {
         return faker.options().option("Male", "Female", "Other");
@@ -37,20 +22,21 @@ public class RandomUtils {
     }
 
     public static String getRandomMonth() {
-        return faker.options().option("January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December");
+        return faker.options().option("January", "February", "March", "April",
+                "May", "June", "July", "August", "September", "October", "November", "December");
     }
 
     public static String getRandomYear() {
         return String.format("%s", getRandomInt(1900, 2050));
     }
 
-
     public static String getRandomHobby() {
         return faker.options().option("Sports", "Reading", "Music");
     }
 
     public static String getRandomSubjects(){
-        return faker.options().option("Hindi", "History", "Computer Science", "Commerce", "Maths", "Accounting", "English", "Physics", "Chemistry", "Civics", "Social Studies", "Biology");
+        return faker.options().option("Hindi", "History", "Computer Science", "Commerce", "Maths",
+                "Accounting", "English", "Physics", "Chemistry", "Civics", "Social Studies", "Biology");
     }
 
     public static String getRandomState(){
@@ -90,3 +76,14 @@ public class RandomUtils {
 ////    public static String getRandomCurrentAddress() {
 //        return getRandomString(7);
 //    }
+
+//public static String getRandomString(int len) {
+////        String AB = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+//    String AB = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+//    SecureRandom rnd = new SecureRandom();
+//
+//    StringBuilder sb = new StringBuilder();
+//    for (int i = 0; i < len; i++)
+//        sb.append(AB.charAt(rnd.nextInt(AB.length())));
+//    return sb.toString();
+//}
