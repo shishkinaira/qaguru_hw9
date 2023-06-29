@@ -1,6 +1,5 @@
 package com.hw7.pages;
 import com.codeborne.selenide.SelenideElement;
-import com.github.javafaker.Faker;
 import com.hw7.pages.components.CalendarComponent;
 import com.hw7.pages.components.CityComponent;
 import com.hw7.pages.components.VerifyComponent;
@@ -14,7 +13,6 @@ import static com.hw7.utils.RandomUtils.*;
 
 public class SimpleFormWithPageObjects {
     //String loginInputLocator= "#firstName"; - bed practice
-    public Faker faker = new Faker();
     CalendarComponent calendarComponent = new CalendarComponent();
     CityComponent cityComponent = new CityComponent();
     VerifyComponent verifyResultWO = new VerifyComponent();
